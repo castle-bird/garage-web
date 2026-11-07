@@ -1,0 +1,3 @@
+# GEMINI Rule
+
+@AGENTS.md

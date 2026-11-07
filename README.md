@@ -14,7 +14,8 @@
 .
 ├── backend/   # Nest.js API 서버
 ├── frontend/  # SvelteKit 웹 클라이언트
-└── shared/    # 공통 타입 및 DTO (@garage/shared)
+├── shared/    # 공통 타입 및 DTO (@garage/shared)
+└── docs/      # 프로젝트 참고 문서
 ```
 
 ## Getting Started

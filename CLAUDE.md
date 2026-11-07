@@ -1,0 +1,3 @@
+# CLAUDE Rule
+
+@AGENTS.md
