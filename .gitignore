@@ -62,5 +62,5 @@ Thumbs.db
 *.sw?
 
 # Prisma
-backend/src/generated/prisma/
+backend/src/generated/
 
