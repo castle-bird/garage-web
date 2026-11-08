@@ -11,5 +11,10 @@
     "dev:back": "npm run start:dev -w backend",
     "build:front": "npm run build -w frontend",
     "build:back": "npm run build -w backend"
+  },
+  "allowScripts": {
+    "bcrypt@6.0.0": true,
+    "prisma@7.10.1": true,
+    "@prisma/engines@7.10.1": true
   }
 }

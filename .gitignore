@@ -60,3 +60,7 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# Prisma
+backend/src/generated/prisma/
+
