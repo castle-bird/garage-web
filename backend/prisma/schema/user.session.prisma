@@ -1,0 +1,20 @@
+// JWT의 Refresh Token관리 Table이다.
+// Redis를 사용할 수도 있으나 프로젝트 규모에 맞지 않아서 제외한다.
+model UserSession {
+  id     Int  @id @default(autoincrement())
+  userId Int
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  refreshTokenHash     String  @unique @db.VarChar(64)
+  prevRefreshTokenHash String? @unique @db.VarChar(64)
+
+  userAgent String? @db.VarChar(255)
+
+  // Date
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@map("user_sessions")
+}
