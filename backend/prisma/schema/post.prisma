@@ -1,0 +1,27 @@
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String  @db.VarChar(100)
+  content   String  @db.Text
+  published Boolean
+
+  // Date
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  // Dependency
+  authorId Int // 작성자
+  author   User @relation(fields: [authorId], references: [id], onDelete: Restrict)
+
+  categoryId Int // 카테고리
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+
+  images Image[] // 첨부 이미지
+
+  // Index
+  @@index([authorId]) // 작성자
+  @@index([categoryId]) // 카테고리
+  @@index([title]) // 제목
+  @@index([createdAt]) // 생성일
+  @@map("posts")
+}

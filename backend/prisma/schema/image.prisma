@@ -1,0 +1,27 @@
+enum ImageType {
+  PROFILE
+  POST
+}
+
+model Image {
+  id         Int       @id @default(autoincrement())
+  type       ImageType
+  originName String    @db.VarChar(255)
+  savedName  String    @db.VarChar(255)
+  path       String    @db.VarChar(255)
+  mimeType   String    @db.VarChar(100)
+  size       Int
+
+  // Date
+  createdAt DateTime @default(now())
+
+  // Dependency
+  postId Int? // 게시글
+  post   Post? @relation(fields: [postId], references: [id], onDelete: Restrict)
+
+  profileUser User? // 사용자
+
+  // Index
+  @@index([postId]) // 게시글
+  @@map("images")
+}

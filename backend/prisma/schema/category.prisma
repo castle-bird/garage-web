@@ -1,0 +1,13 @@
+model Category {
+  id   Int    @id @default(autoincrement())
+  name String @unique @db.VarChar(50)
+
+  // Date
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Dependency
+  posts Post[] // 게시글
+
+  @@map("categories")
+}

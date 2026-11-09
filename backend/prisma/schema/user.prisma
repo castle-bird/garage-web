@@ -1,0 +1,29 @@
+enum Role {
+  USER
+  ADMIN
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  email    String
+  password String
+  nickname String @db.VarChar(30)
+  role     Role   @default(USER)
+
+  // Date
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime @default("1970-01-01T00:00:00Z")
+
+  // Dependency
+  posts Post[] // 게시글
+
+  profileImageId Int?   @unique // 프로필 이미지
+  profile        Image? @relation(fields: [profileImageId], references: [id], onDelete: SetNull)
+
+  // Constraints
+  // 아래 두 항목은 탈퇴자가 이메일, 닉네임을 점유하는 것을 막기 위함이다.
+  @@unique([email, deletedAt]) // 이메일 + 삭제일
+  @@unique([nickname, deletedAt]) // 닉네임 + 삭제일
+  @@map("users")
+}
