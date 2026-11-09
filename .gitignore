@@ -64,3 +64,4 @@ Thumbs.db
 # Prisma
 backend/src/generated/
 
+STATUS.md
