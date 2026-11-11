@@ -5,8 +5,8 @@ enum Role {
 
 model User {
   id       Int    @id @default(autoincrement())
-  email    String
-  password String
+  email    String @db.VarChar(255)
+  password String @db.VarChar(60)
   nickname String @db.VarChar(30)
   role     Role   @default(USER)
 
