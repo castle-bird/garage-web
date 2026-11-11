@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from './prisma/prisma.module.js';
+import { UsersModule } from './users/users.module.js';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { PrismaModule } from './prisma/prisma.module.js';
     // 1번은 import해야 provider 생성됨
     // → app.module.ts는 전역이므로 여기서 1회만 등록
     PrismaModule,
+    UsersModule,
   ],
   controllers: [],
   providers: [],
